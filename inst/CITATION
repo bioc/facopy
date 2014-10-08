@@ -1,0 +1,9 @@
+year <- 2014
+vers <- paste("R package version 0.0.1")
+citEntry(entry="Manual",
+         title = "facopy.annot",
+         author = personList(as.person("David Mosen-Ansorena")),
+         year = year,
+         note = vers,
+         textVersion =
+         paste("David Mosen-Ansorena (",year, "). facopy.annot. ", vers, ".", sep=""))

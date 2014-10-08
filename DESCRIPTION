@@ -1,0 +1,29 @@
+Package: facopy
+Type: Package
+Title: Feature-based association and gene-set enrichment for copy
+        number alteration analysis in cancer
+Version: 0.99.6
+Date: 2014-10-03
+Author: David Mosen-Ansorena
+Maintainer: David Mosen-Ansorena <dmosen.gn@cicbiogune.es>
+Imports: annotate, data.table, DOSE, FactoMineR, GO.db, GOstats,
+        graphite, igraph, IRanges, MASS, nnet, reshape2, Rgraphviz,
+        scales
+Depends: R (>= 3.0), methods, cgdsr (>= 1.1.30), coin (>= 1.0),
+        ggplot2, gridExtra, facopy.annot
+Description: facopy is an R package for fine-tuned cancer CNA
+        association modeling. Association is measured directly at the
+        genomic features of interest and, in the case of genes,
+        downstream gene-set enrichment analysis can be performed thanks
+        to novel internal processing of the data. The software opens a
+        way to systematically scrutinize the differences in CNA
+        distribution across tumoral phenotypes, such as those that
+        relate to tumor type, location and progression. Currently, the
+        output format from 11 different methods that analyze data from
+        whole-genome/exome sequencing and SNP microarrays, is
+        supported. Multiple genomes, alteration types and variable
+        types are also supported.
+License: CC BY-NC 4.0
+biocViews: Software, CopyNumberVariation, GeneSetEnrichment,
+        GenomicVariation, Genetics, Microarray, Sequencing,
+        Visualization
