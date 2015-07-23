@@ -11,8 +11,8 @@ facopy is an R package for fine-tuned cancer CNA association modeling. Associati
 \tabular{ll}{
 Package: \tab facopy\cr
 Type: \tab Package\cr
-Version: \tab 0.99.6\cr
-Date: \tab 2014-10-03\cr
+Version: \tab 1.3.1\cr
+Date: \tab 2015-23-07\cr
 License: \tab CC BY-NC 4.0\cr
 }
 To analyze your data with facopy, first read copy number data through \code{\link{readCNData}}. Then, \code{\link{addVariables}} and \code{\link{addFeatures}}, and you are ready to start scrutinizing the data in multiple ways thanks to the many provided functions.
