@@ -778,7 +778,7 @@ variableCor = function(fad, filename=NULL) {
 	rect = data.frame(xmin=st, xmax=st+wi, ymin=-Inf, ymax=Inf)
 
 	p = qplot(as.factor(chr_q_arm), pos, data=aggr, ylab=paste(ylab,"deletion/amplification frequency"), xlab="Chromosome arm") +
-		geom_rect(data=rect, aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax), fill="white", border=0, alpha=0.5, inherit.aes=FALSE) +
+		geom_rect(data=rect, aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax), fill="white", alpha=0.5, inherit.aes=FALSE) +
 		geom_rect(aes(xmin=0,xmax=Inf,ymin=-diff(ylim)*0.005,ymax=diff(ylim)*0.005), fill="grey") +
 		geom_point(aes(x=factor(chr_q_arm), y=aggr$pos, fill=factor(chr_q_arm)), shape=24, size=5, inherit.aes=FALSE) + 
 		geom_point(aes(x=factor(chr_q_arm), y=aggr$posLOH, fill=factor(chr_q_arm)), shape=24, size=3, inherit.aes=FALSE) + 
@@ -891,7 +891,7 @@ plotHist = function(fad, alteration, varName, sel=NULL, selColors=NULL, selOnly=
 		if (selOnly)
 			dat = dat[dat$Chromosome%in%levels(cc)[num_marked],]
     lab = paste(varName, fad@vData$varValuesNames[fad@vData$varNames==varName][[1]][i], sep=": ")
-		p[[i]] = qplot(Frequency, data=dat, geom="bar", fill=as.factor(Chromosome), binwidth=bin) +
+		p[[i]] = qplot(Frequency, data=dat, geom="histogram", fill=as.factor(Chromosome), binwidth=bin) +
 			theme(legend.position="none") + scale_fill_manual(values=cols) + ylab("Genes") +
 			coord_cartesian(ylim=c(0,ymax), xlim=c(0,xmax))	 +
 		  annotate("text", label=lab, x=xmax*0.8,y=ymax*0.9, size=6, color="white", fontface="bold", family="mono") +
@@ -900,7 +900,7 @@ plotHist = function(fad, alteration, varName, sel=NULL, selColors=NULL, selOnly=
 		else p[[i]] = p[[i]] + xlab("")
 	}
 	g_legend<-function(){
-		a.gplot = qplot(Frequency, data=dat[dat$Chromosome%in%levels(cc)[num_marked],], geom="bar", fill=Chromosome, binwidth=bin) + 
+		a.gplot = qplot(Frequency, data=dat[dat$Chromosome%in%levels(cc)[num_marked],], geom="histogram", fill=Chromosome, binwidth=bin) + 
 			scale_fill_manual(values=selColors, labels=sel) + theme(legend.position="bottom")
 		tmp = ggplot_gtable(ggplot_build(a.gplot))
 		tmp$grobs[[which(sapply(tmp$grobs, function(x) x$name)=="guide-box")]]
@@ -1190,8 +1190,8 @@ facopyPlot = function(fad, alteration, varName, db=NULL) .facopyPlotInt(fad, alt
 		xlim = c(min(xx2$bp), max(xx2$bp))
     ### plot initialization
     p[[i]] = ggplot(xx2, aes_string(x="bp",y="value",colour=varName,group=varName)) + 
-		  scale_y_continuous(breaks=seq(0.2,0.8,0.2), labels=rep("",4)) + 
-      scale_x_continuous(breaks=pretty_breaks(n=3)) +
+		  scale_y_continuous(breaks=seq(0.25,0.75,0.25), labels=rep("",3)) + 
+      # scale_x_continuous(breaks=pretty_breaks(n=3)) +
       ylab(NULL) +
 		  xlab(paste(arm, " (chr",gsub("[p|q]","",arm)," position)",sep="")) +
 		  coord_cartesian(ylim=c(0,1), xlim=xlim)
