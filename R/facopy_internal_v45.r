@@ -573,7 +573,7 @@ addFeatures = function(fad, what=c("ensembl","cancergene","oncogene","tumorsupre
     b = IRanges(start=chr_features$bp_st, end=chr_features$bp_en)
     overlaps = findOverlaps(a,b, minoverlap=minoverlap)
     for (i in 1:nrow(chr_features)) {
-      overTab = cD_chr[overlaps@queryHits[overlaps@subjectHits==i],]
+      overTab = cD_chr[queryHits(overlaps)[subjectHits(overlaps)==i],]
       overTab = overTab[!duplicated(overTab$code),]
       tabs[[length(tabs)+1]] = overTab[,c("code","type",fad@vData$varColumns)]
     }
