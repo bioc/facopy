@@ -1407,6 +1407,8 @@ facopyEnrichment = function(fad, geneTable, cor, outFolder, pvalThr=0.05, corThr
   mycaselist = grep("_all$", getCaseLists(mycgds,mycancerstudy)[,1], value=TRUE)[1]
   mygeneticprofiles = tolower(getGeneticProfiles(mycgds,mycancerstudy)[,1])
   cn_profile = grep("_gistic|_cna", mygeneticprofiles, value=TRUE)
+  if (length(cn_profile)>1)
+    cn_profile = cn_profile[sapply(cn_profile, function(i) nrow(getProfileData(mycgds,x[1],i,mycaselist)))>0][1]
   expr_profile = paste(mycancerstudy,"_",exprProfile,sep="")	
   n = length(x)
   chunk = 500
