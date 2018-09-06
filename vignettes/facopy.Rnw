@@ -54,7 +54,7 @@ The package bundles example data from 20 colorectal cancer samples. The DNA samp
 
 \section{Input}
 
-An example analysis on the previously described data follows. First, if you have not already, install the {\bf\textcolor{facopy}{facopy}} package through the \texttt{biocLite()} function, and then load it. Use the devel version of Bioconductor to get the package seamlessly.
+An example analysis on the previously described data follows. First, if you have not already, install the {\bf\textcolor{facopy}{facopy}} package through the \texttt{BiocManager::install()} function, and then load it. Use the devel version of Bioconductor to get the package seamlessly.
 
 <<echo=TRUE,results=hide,eval=FALSE>>=
 if (!requireNamespace("BiocManager", quietly=TRUE))

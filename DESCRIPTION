@@ -2,7 +2,7 @@ Package: facopy
 Type: Package
 Title: Feature-based association and gene-set enrichment for copy
         number alteration analysis in cancer
-Version: 1.15.3
+Version: 1.15.4
 Date: 2015-23-07
 Author: David Mosen-Ansorena
 Maintainer: David Mosen-Ansorena <dmosen.gn@cicbiogune.es>
